@@ -1,5 +1,6 @@
 <script setup>
-import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated } from 'vue'
+import { ref, reactive, computed, watch, onBeforeUpdate, onUpdated } from 'vue'
+import { vAutofocus } from '../directives/vAutofocus'
 
 const counter = ref(0)
 const counterTitle = ref('My counter Title')
@@ -36,29 +37,15 @@ const decreaseCounter2 = amount => {
   counterData.count -= amount
 }
 
-onBeforeMount(() => {
-  console.log('onBeforeMount')
+onBeforeUpdate(() => {
+  console.log('onBeforeUpdate')
 })
 
-onMounted(() => {
-  console.log('onMounted')
+onUpdated(() => {
+  console.log('onUpdated')
 })
 
-onBeforeUnmount(() => {
-  console.log('onBeforeUnmount')
-})
 
-onUnmounted(() => {
-  console.log('onUnmounted')
-})
-
-onActivated(() => {
-  console.log('onActivated')
-})
-
-onDeactivated(() => {
-  console.log('onDeactivated')
-})
 </script>
 
 <template>
@@ -77,7 +64,7 @@ onDeactivated(() => {
     </div>
     <div class="edit">
       <h3>Edit counter title: </h3>
-      <input type="text" v-model="counterTitle" />
+      <input type="text" v-model="counterTitle" v-autofocus />
     </div>
   </div>
 </template>
