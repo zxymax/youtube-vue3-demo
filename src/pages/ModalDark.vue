@@ -25,7 +25,7 @@ const handleButtonClick = () => {
 
 <template>
     <teleport to=".modals-container">
-      <div v-if="modelValue"  class="modal">
+      <div v-if="modelValue"  class="modal-dark">
         <h1><slot name="title" /></h1>
         <h4>{{subTitle}}</h4>
         <slot />
@@ -36,8 +36,9 @@ const handleButtonClick = () => {
     </teleport>
 </template>
 <style>
-.modal {
-  background: beige;
+.modal-dark {
+  background: #333;
+  color: white;
   padding: 10px;
   position: absolute;
   left: 0;
@@ -47,3 +48,4 @@ const handleButtonClick = () => {
   z-index: 999;
 }
 </style>
+
