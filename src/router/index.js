@@ -22,7 +22,12 @@ const routes = [
     path: '/post-detail/:id',
     name: 'post-detail',
     component: () => import('../pages/PostDetail.vue')
-  }
+  },
+  {
+    path: '/modals',
+    name: 'modals',
+    component: () => import('../pages/Modals.vue')
+  },
 ]
 
 export const router = createRouter({
