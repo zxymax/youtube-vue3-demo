@@ -1,9 +1,11 @@
 <script setup>
-import { useSlots } from 'vue'
+import { useSlots, inject } from 'vue'
 
 const slots = useSlots()
 
 console.log(slots.title())
+
+const roleData = inject('roleData')
 
 const props = defineProps({
   modelValue: {
@@ -37,6 +39,9 @@ const handleButtonClick = () => {
         <button @click="handleButtonClick">Hide model</button>
         <div>
           Username is: {{userData.username}}
+        </div>
+        <div>
+          Rolename is: {{roleData.rolename}}
         </div>
       </div>
     </teleport>

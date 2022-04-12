@@ -1,10 +1,17 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, provide } from 'vue'
 
 const userData = reactive({
   name: 'Jorna',
   username: 'jornajan'
 })
+
+const roleData = reactive({
+  rolename: 'Yasuo',
+  gamename: 'LOL'
+})
+
+provide('roleData', roleData)
 
 </script>
 
