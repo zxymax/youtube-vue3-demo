@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated } from 'vue'
 
 const counter = ref(0)
 const counterTitle = ref('My counter Title')
@@ -35,6 +35,30 @@ const increaseCounter2 = amount => {
 const decreaseCounter2 = amount => {
   counterData.count -= amount
 }
+
+onBeforeMount(() => {
+  console.log('onBeforeMount')
+})
+
+onMounted(() => {
+  console.log('onMounted')
+})
+
+onBeforeUnmount(() => {
+  console.log('onBeforeUnmount')
+})
+
+onUnmounted(() => {
+  console.log('onUnmounted')
+})
+
+onActivated(() => {
+  console.log('onActivated')
+})
+
+onDeactivated(() => {
+  console.log('onDeactivated')
+})
 </script>
 
 <template>
