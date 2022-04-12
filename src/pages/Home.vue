@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed, watch, onBeforeUpdate, onUpdated } from 'vue'
+import { ref, reactive, computed, watch, onBeforeUpdate, onUpdated, onMounted, nextTick } from 'vue'
 import { vAutofocus } from '../directives/vAutofocus'
 
 const counter = ref(0)
@@ -15,6 +15,16 @@ const oddOrEven = computed(() => {
   return 'odd'
 })
 
+
+
+const appTitle = 'My Ok Counter app'
+const appTitleRef = ref(null)
+
+onMounted(() => {
+  console.log(`The app title is ${appTitleRef.value.offsetWidth}px wide`)
+})
+
+
 watch(() => counterData.count, (newCount, oldCount) => {
   if (newCount === 20) {
     alert('Way to go! You made it to 20!')
@@ -29,8 +39,18 @@ const decreaseCounter = () => {
   counter.value--
 }
 
-const increaseCounter2 = amount => {
+const increaseCounter2 = async (amount, e) => {
   counterData.count += amount 
+
+  // do something after the dom had updated
+  /*
+  nextTick(() => {
+    console.log('do something after the dom had updated')
+  })
+  */
+
+  await nextTick()
+  console.log('do something after the dom had updated')
 }
 
 const decreaseCounter2 = amount => {
@@ -46,11 +66,14 @@ onUpdated(() => {
 })
 
 
+
+
 </script>
 
 <template>
   <div class="home">
-    <h1>{{counterTitle === '' ? 'My counter Title' : counterTitle}}</h1>
+    <h1 ref="appTitleRef">{{appTitle}}</h1>
+    <h2>{{counterTitle === '' ? 'My counter Title' : counterTitle}}</h2>
     <div>
       <button @click="decreaseCounter"> - </button>
       <span>{{counter}}</span>
