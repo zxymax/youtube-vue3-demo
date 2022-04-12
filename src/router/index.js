@@ -4,6 +4,7 @@ import About from '../pages/About.vue'
 import ModalsView from '../pages/ModalsView.vue'
 import Posts from '../pages/Posts.vue'
 import PostDetail from '../pages/PostDetail.vue'
+import StateMange from '../pages/StateManage.vue'
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: '/posts',
     name: 'posts',
     component: Posts
+  },
+  {
+    path: '/state-mangement',
+    name: 'state-mangement',
+    component: StateMange
   },
   {
     path: '/post-detail/:id',

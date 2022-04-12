@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, provide } from 'vue'
+import store from './store'
 
 const userData = reactive({
   name: 'Jorna',
@@ -13,6 +14,8 @@ const roleData = reactive({
 
 provide('roleData', roleData)
 
+provide('store', store)
+
 </script>
 
 <template>
@@ -23,7 +26,8 @@ provide('roleData', roleData)
     <RouterLink to="/">Home</RouterLink> |
     <RouterLink to="/modals">Modals</RouterLink> |
     <RouterLink to="/about">About</RouterLink> |
-    <RouterLink to="/posts">Posts</RouterLink>
+    <RouterLink to="/posts">Posts</RouterLink> |
+    <RouterLink to="/state-mangement">State Mangement</RouterLink>
   </nav>
   <RouterView :userData="userData" />
 </template>
