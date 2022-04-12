@@ -24,6 +24,7 @@ const handleButtonClick = () => {
 </script>
 
 <template>
+  <div>
     <teleport to=".modals-container">
       <div v-if="modelValue"  class="modal-dark">
         <h1><slot name="title" /></h1>
@@ -34,6 +35,7 @@ const handleButtonClick = () => {
         <button @click="handleButtonClick">Hide model</button>
       </div>
     </teleport>
+</div>
 </template>
 <style>
 .modal-dark {

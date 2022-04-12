@@ -6,6 +6,7 @@ const slots = useSlots()
 console.log(slots.title())
 
 const roleData = inject('roleData')
+console.log(roleData)
 
 const props = defineProps({
   modelValue: {
