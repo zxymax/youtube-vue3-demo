@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 import About from '../pages/About.vue'
+import ModalsView from '../pages/ModalsView.vue'
+import Posts from '../pages/Posts.vue'
+import PostDetail from '../pages/PostDetail.vue'
 
 const routes = [
   {
@@ -16,17 +19,17 @@ const routes = [
   {
     path: '/posts',
     name: 'posts',
-    component: () => import('../pages/Post.vue')
+    component: Posts
   },
   {
     path: '/post-detail/:id',
     name: 'post-detail',
-    component: () => import('../pages/PostDetail.vue')
+    component: PostDetail
   },
   {
     path: '/modals',
     name: 'modals',
-    component: () => import('../pages/Modals.vue')
+    component: ModalsView
   },
 ]
 
