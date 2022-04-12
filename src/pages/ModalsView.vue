@@ -5,6 +5,12 @@ import ModalDark from './ModalDark.vue'
 
 const showDarkModals = ref(false)
 const showModal = ref(false)
+
+const props = defineProps({
+  userData: {
+    type: Object
+  }
+})
 </script>
 
 <template>
@@ -20,6 +26,7 @@ const showModal = ref(false)
     <component 
       :is="showDarkModals ? ModalDark : Modal"
       v-model="showModal"
+      :userData="userData"
       @hideModal="showModal=false" 
       subTitle="Communicate between parent and child using props">
         <template #title>This is a modal</template>

@@ -13,6 +13,9 @@ const props = defineProps({
   subTitle: {
     type: String,
     default: '父子之间通信使用defineProps'
+  },
+  userData: {
+    type: Object
   }
 })
 
@@ -32,6 +35,9 @@ const handleButtonClick = () => {
         <pre>{{$slots.title()}}</pre>
         <button @click="$emit('update:modelValue', false)">Hide model</button>
         <button @click="handleButtonClick">Hide model</button>
+        <div>
+          Username is: {{userData.username}}
+        </div>
       </div>
     </teleport>
 </template>

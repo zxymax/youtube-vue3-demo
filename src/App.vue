@@ -1,16 +1,33 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { reactive } from 'vue'
+
+const userData = reactive({
+  name: 'Jorna',
+  username: 'jornajan'
+})
+
 </script>
 
 <template>
+  <div class="user-data">
+    {{userData.name}} @{{userData.username}}
+  </div>
   <nav>
     <RouterLink to="/">Home</RouterLink> |
     <RouterLink to="/modals">Modals</RouterLink> |
     <RouterLink to="/about">About</RouterLink> |
     <RouterLink to="/posts">Posts</RouterLink>
   </nav>
-  <RouterView />
+  <RouterView :userData="userData" />
 </template>
 
 <style>
+.user-data {
+  position: absolute;
+  background: beige;
+  top: 0;
+  right: 5px;
+  font-size: 12px;
+  padding: 5px;
+}
 </style>
